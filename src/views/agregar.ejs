@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js" lang="ES">
+<head> 
+    <title>AddProductAmin</title>
+    <%- include('./partials/head') %> 
+</head>
+  
+<body>
+    <%- include('./partials/preloader') %>
+  <header>
+    <%- include('./partials/header') %>
+  </header>  
+
+<main>  
+       
+    <div class="form-register2">
+        <h4>Carga tu producto</h4>
+        
+        <form id="formAdd" method="POST" action="" enctype="multipart/form-data"> <!-- FORMULARIO -->
+          
+        <input class="controlls2" type="" name="nombre" id="nombre" placeholder="nombre" ><!-- NOMBRE -->
+        <span id="errorNombre" class="text-danger"></span>
+
+                
+        <input class="controlls2" type="" name="precio" id= "precio" placeholder="$ precio" >      <!-- PRECIO -->
+        <span id="errorPrecio" class="text-danger"></span>
+
+
+        <label for="Categorias" ></label>                <!-- CATEGORIAS -->
+            <select name="categories" class="controlls2" >
+                <option selected>Selecciona una Categoria</option>
+                <option value="baño">Griferia Baño</option>
+                <option value="cocina">Griferia Cocina</option>
+                <option value="bachas">Bachas</option>
+                <option value="sanitarios">Sanitarios</option>
+                <option value="bañeras">Bañeras y Duchas</option>
+                <option value="accesorios">Accesorios Varios</option> 
+        </select>
+        <h3>Agregue 1 imagen</h3>
+        <input class="controlls2"  type="file" id="imagen" name="imagen">       <!-- IMAGEN -->
+        <span id="errorFoto" class="text-danger"></span>
+        </label>
+        <div class="custom-file mt-4">
+          <div class="col-12">
+              <div class="d-flex justify-content-center">
+                  <img src="" id="vistaPrevia" class="img-thumbnail">
+              </div>
+          </div>
+          </div>
+
+
+
+
+        <label for="controlls2"></label>    
+        <div class="botons">
+          <label for="exampleFormControlTextarea1">Descripción</label>
+          <textarea class="form-control" id="descripcion" rows="3" name="descripcion"></textarea> <!-- DESCRIPCION -->
+          <span id="errorComentario" class="text-danger"></span>
+      </div>
+                   
+      <div class="mt-5 mr-5 d-flex justify-content-center">
+
+
+      <button type="submit" class="btn btn-outline-primary">Publicar</button></div>
+      <span id="msgError" class="text-danger"></span>
+ <p class="pull-left copyright backgroun"> <a href="/productos">Cancelar</a></li></p>
+     </form>      
+    
+  </div>
+  
+
+</main>
+
+<footer>
+    <%- include('./partials/footer') %>
+  </footer>           
+   <script src="/javascript/productAdd.js"></script>
+    <%- include('./partials/scripts') %>  
+  
+  </body>
+  </html>

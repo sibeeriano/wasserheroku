@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html class="no-js" lang="ES">
+<head><title>administrador/Productos</title>
+  <%- include('./partials/head') %>     
+</head>    
+
+<body>
+  <%- include('./partials/preloader') %>
+
+<header>
+  <%- include('./partials/header') %>
+</header> 
+
+  <main>
+    <br>
+    <div class="container">
+      <p class="pull-left copyright backgroun"> <a href="/productos/agregar">Agregar producto</a></li></p>
+      <p class="pull-left copyright backgroun"> <a href="/user/usuarios">Lista de usuarios</a></li></p>
+     
+      </div> 
+    <h1>Listado de productos <br> Vista administrador </h1>
+    <br>
+    <div class="container">    
+      <div class="row">
+        <% productos.forEach(producto => { %>            
+          <div class="col-sm-3">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><%- producto.nombre %>  </div>
+              <div class="panel-body"><a href="/productos/detalle/<%= producto.id %>"><img src="/images/imagenProducto/<%=producto.imagenes %> " class="img-responsive" style="width:100%" alt="Image"></a></div>
+              <div class="panel-footer">$<%- producto.precio %> </div>
+              <div class="d-flex justify-content-center">
+              <form action="/productos/EditarProducto/<%= producto.id %>"  method="">
+              <button class="">
+              <i class="fas fa-edit"></i>
+              Editar</button> 
+              </form>
+              <br>
+              <!-- <form alert="return confirm('Estas seguro que querés eliminaro el producto?')" action="/productos/delete/<%= producto.id %>?_method=delete" method="POST">
+              <button class="">Eliminar</button>
+              </form> !-->
+
+              <form id= myForm action="/productos/delete/<%= producto.id %>?_method=delete" method="POST">
+
+              <script>
+              
+              function validateForm() {
+      event.preventDefault(); // prevent form submit
+      var form = document.forms["myForm"]; // storing the form
+      swal({
+             title: "Estas seguro????",
+             text: "Si elimina el archivo no hay vuelta atrás!",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+           })
+          .then((willDelete) => {
+               if (willDelete) {
+                     form.submit();
+               } else {
+                      swal("No se eliminó ningun archivo!");
+           }
+        });
+}
+
+              </script>
+
+
+           
+
+                <button class="" type="submit" name="delete" onclick="validateForm()">
+                    <i class="fa fa-trash"></i>
+                        Eliminar
+                </button>
+        </form>
+
+          
+              
+              
+              </script>
+            
+     
+              </div>    
+              <div class="panel-footer">
+                <br>
+                <br>
+              </div>
+              </div>
+              </div>
+              <% }) %>
+              </div>
+              </div>  
+              <div class="container">
+              <p class="pull-left copyright backgroun"> </li></p>
+              </div>    
+  </main>           
+  <footer>
+        <%- include('./partials/footer') %>
+  </footer>           
+        <%- include('./partials/scripts') %>  
+        <script src="/javascript/sweetAlert.js"></script>
+  </body>
+  </html>    
+  
+  
+                
+                
+            
+                
+        

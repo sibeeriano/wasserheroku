@@ -1,0 +1,82 @@
+<html class="no-js" lang="zxx">
+<head>   
+    <title>Wasser-<%- nombre %></title> 
+    <%- include('./partials/head') %>     
+</head>    
+
+<body>
+  <%- include('./partials/preloader') %>
+
+<header>
+  <%- include('./partials/header') %>
+</header>
+
+<main>
+    <br>
+<h1><%- nombre %>  <%- apellido %></h1>
+<h1><img src="/images/avatares/<%= avatar %>" class="img-responsive" style="width:25%" alt="Image"> </h1> 
+<br>
+
+<div class="">
+    <table class="table table-response">
+        
+        <thead>
+            <tr>
+                
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                
+                
+                
+                
+            
+           
+            </tr>
+        </thead>
+        <tbody>
+              
+            <tr>
+               
+                <td><%- nombre %></td> 
+                <td><%- apellido %></td>
+                <td><%- email %></td>
+                
+                <td><form action="/user/editarperfil/<%= id %>">
+                    <button class="">Editar Perfil</button>
+                    </form></td>    
+                
+                 
+               
+                 
+                               
+                
+                
+            </tr>
+            
+        </tbody>
+        
+            </table>
+        </div>
+    
+
+
+
+
+
+
+
+
+</main>
+
+<footer>
+    <%- include('./partials/footer') %>
+</footer>           
+    <%- include('./partials/scripts') %>  
+</body>
+</html>
+
+
+
+
+

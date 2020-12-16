@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>   
+    <title>Usuarios/Admin</title>
+    <%- include('./partials/head') %>     
+</head>    
+
+<body>
+  <%- include('./partials/preloader') %>
+
+<header>
+  <%- include('./partials/header') %>
+</header>
+
+<main>
+    <br>
+<h1>Listado de usuarios registrados</h1>
+<br>
+
+  
+    <table class="table table-responsive">
+        
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Avatar</th>
+                <th>PERFIL</th>
+                <th>BAN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% usuarios.forEach(usuario => { %>    
+            <tr>
+                
+                <td><%- usuario.id %></td>
+                <td> <a href="perfil/<%= usuario.id %>" > <%- usuario.nombre %></a> </td>
+                <td><%- usuario.apellido %></td>
+                <td><%- usuario.email %></td> 
+                <td><%- usuario.rol %></td> 
+                <td><img src="/images/avatares/<%= usuario.avatar %>" class="img-responsive" style="width:10%" alt="Image"></td>
+              
+                 
+                
+                
+                <td><form action="perfil/<%= usuario.id %>">
+                    <button class="">Perfil</button>
+                    </form></td>    
+                    <td>   
+
+                        <form id= myForm action="/user/delete/<%= usuario.id %>?_method=delete" method="POST">
+
+                            <script>
+                            
+                            function validateForm() {
+                    event.preventDefault(); // prevent form submit
+                    var form = document.forms["myForm"]; // storing the form
+                    swal({
+                           title: "Estas seguro????",
+                           text: "Si elimina el usuario no hay vuelta atrás!",
+                           icon: "warning",
+                           buttons: true,
+                           dangerMode: true,
+                         })
+                        .then((willDelete) => {
+                             if (willDelete) {
+                                   form.submit();
+                             } else {
+                                    swal("No se eliminó ningun usuario!");
+                         }
+                      });
+              }
+              
+                            </script>
+              
+              
+                         
+              
+                              <button class="" type="submit" name="delete" onclick="validateForm()">
+                                  <i class="fa fa-trash"></i>
+                                     
+                              </button>
+                      </form>
+
+
+            </tr>
+            <% }) %>
+        </tbody>
+        
+            </table>
+    
+
+
+
+
+
+
+
+
+</main>
+
+<footer>
+    <%- include('./partials/footer') %>
+</footer>           
+    <%- include('./partials/scripts') %>  
+</body>
+</html>
+
+
+
+
+
