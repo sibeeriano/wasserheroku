@@ -14,6 +14,15 @@ var userRouter = require ('./routes/users');
 
 var app = express();
 
+const connection =mysql.createConnection({
+  host: 'us-cdbr-east-02.cleardb.com',
+  user: 'b8b7111005e161',
+  password: '3cf7bb1e',
+  database: 'heroku_7506ef71ed227ed'
+});
+
+//@/
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
