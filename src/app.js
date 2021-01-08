@@ -12,8 +12,6 @@ var indexRouter = require('./routes/index');
 var productosRouter = require('./routes/producto');
 var userRouter = require ('./routes/users');
 
-var port = process.env.PORT || 8000 
-
 var app = express();
 
 const connection =mysql.createConnection({
@@ -62,8 +60,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-server.listen(port, function() { 
-  console.log("App is running on port " + port); 
-}); 
+
 
 module.exports = app;
