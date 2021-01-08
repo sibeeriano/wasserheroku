@@ -12,14 +12,14 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-const PORT = process.env.PORT || 1122;
+var port = normalizePort(process.env.PORT || '1122');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -89,7 +89,9 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-server.listen(PORT, () => {
-  console.log('Server listening on: http://localhost:1112', PORT);
-});
+console.log(`
+------------------------------------------
+WASSER ACTIVATED ${port}
+------------------------------------------
+`);
 
