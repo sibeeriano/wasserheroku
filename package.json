@@ -8,7 +8,9 @@
   },
   "Encargado de Express": "Facundo Vara, Leandro Uriel Turrion, Leandro Bucco",
   "scripts": {
-    "start": "node ./src/bin/www"
+    "start": "node ./src/bin/www",
+    "postinstall": "npm run build",
+    "server:dev": "webpack-dev-server"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
